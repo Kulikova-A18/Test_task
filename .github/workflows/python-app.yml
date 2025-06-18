@@ -85,6 +85,7 @@ jobs:
     - name: Run tests
       run: |
         python python/unittest_false_main.py  | exit 0
+        exit 1
     
   test_empty_subarray_main:
     runs-on: ubuntu-latest
@@ -111,3 +112,4 @@ jobs:
     - name: Run tests
       run: |
         python python/unittest_empty_subarray_main.py | exit 0
+        exit 1
