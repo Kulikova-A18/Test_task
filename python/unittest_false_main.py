@@ -12,13 +12,13 @@ class TestArrayFunctions(unittest.TestCase):
 
     def test_find_max_in_subarray_with_strings(self):
         string_input_subarray = ['apple', 'banana', 'cherry']
-        max_results_storage = [None]  # Используем None вместо 0 для хранения результата
+        max_results_storage = [None]
         find_max_in_subarray(string_input_subarray, max_results_storage, 0)
         self.assertEqual(max_results_storage[0], 'cherry')
 
     def test_find_max_in_mixed_numbers_and_strings(self):
         mixed_input_subarray = [3, 'apple', 5, 'banana']
-        max_results_storage = [None]  # Используем None вместо 0 для хранения результата
+        max_results_storage = [None]
         with self.assertRaises(TypeError):
             find_max_in_subarray(mixed_input_subarray, max_results_storage, 0)
 
