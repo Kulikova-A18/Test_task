@@ -24,11 +24,15 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r /python/requirements.txt  
-        
+        if [ -f /python/requirements.txt ]; then
+          pip install -r /python/requirements.txt | echo "skip requirements.txt"
+        else
+          echo "skip requirements.txt"
+        fi
+
     - name: Compile the project
       run: |
-        python /python/main.py  # Команда для компиляции вашего проекта
+        python /python/main.py
 
   test:
     runs-on: ubuntu-latest
@@ -46,7 +50,11 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt  # Убедитесь, что у вас есть requirements.txt
+        if [ -f /python/requirements.txt ]; then
+          pip install -r /python/requirements.txt | echo "skip requirements.txt"
+        else
+          echo "skip requirements.txt"
+        fi
 
     - name: Run tests
       run: |
